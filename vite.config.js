@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import handlebars from 'vite-plugin-handlebars';
 import { resolve } from 'path';
-import includeHtml from 'vite-plugin-include-html';
 
 const API_URL = '/';
 
@@ -52,7 +51,7 @@ export default defineConfig(({ mode }) => {
       }
     },
     base: API_URL || '/dating_app_linh_linh',
-    plugins: [react(), jsconfigPaths(), includeHtml()],
+    plugins: [react(), jsconfigPaths()],
     css: {
       devSourcemap: false
     }

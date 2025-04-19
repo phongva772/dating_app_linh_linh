@@ -7,7 +7,6 @@ import router from 'routes';
 import NavigationScroll from 'layout/NavigationScroll';
 
 import ThemeCustomization from 'themes';
-
 // auth provider
 
 // ==============================|| APP ||============================== //

@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel');
+
+.container_book {}
+
+.book {
+    width: 100%;
+    height: 100vh;
+    perspective: 2000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lovers Quarrel', cursive;
+}
+
+.pages {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transform-origin: center;
+    transition: transform 1s ease-in-out;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Đảm bảo không có nội dung tràn ra ngoài */
+}
+
+.page.flipped {
+    transform: rotateY(-180deg);
+    opacity: 0.5;
+    /* Có thể thêm hiệu ứng mờ cho trang lật */
+}
+
+.page p {
+    margin: 0;
+}
+
+.heart-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    animation: rise 4s ease-in forwards;
+    opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1) rotate(45deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-600px) scale(1.5) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* 🎆 Pháo hoa */
+.firework-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.firework {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: transparent;
+    animation: shoot 0.5s ease-out forwards, explode 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateY(0);
+        background: white;
+    }
+
+    100% {
+        transform: translateY(-300px);
+        background: white;
+    }
+}
+
+@keyframes explode {
+    0% {
+        box-shadow:
+            0 0 #ff0,
+            0 0 #f00,
+            0 0 #0f0;
+    }
+
+    100% {
+        box-shadow:
+            20px -20px #ff0,
+            -20px -20px #f00,
+            20px 20px #0f0,
+            -20px 20px #0ff,
+            0 30px #f0f,
+            0 -30px #00f;
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+.pages.reset-center {
+    animation: centerBook 1s ease-in-out forwards;
+}
+
+@keyframes centerBook {
+    0% {
+        transform: translateX(100px) scale(1.05) rotateY(15deg);
+    }
+
+    100% {
+        transform: translateX(0) scale(1) rotateY(0deg);
+    }
+}
+
+.book.changebg {
+    background: radial-gradient(circle at center, #ffe6f0 0%, #fff0f5 50%, #ffffff 100%);
+    transition: background 1s ease-in-out;
+}

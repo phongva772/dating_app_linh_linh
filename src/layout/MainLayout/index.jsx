@@ -43,26 +43,62 @@ export default function MainLayout() {
   if (menuMasterLoading) return <Loader />;
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      {/* header */}
-      <AppBar enableColorOnDark position="fixed" color="inherit" elevation={0} sx={{ bgcolor: 'background.default' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        minHeight: '100vh',
+        backgroundImage: '../../ui-component/romantic/gpt.png)', // đổi path tương ứng
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        backdropFilter: 'blur(4px)'
+      }}
+    >
+      {/* AppBar */}
+      <AppBar
+        enableColorOnDark
+        position="fixed"
+        elevation={0}
+        sx={{
+          bgcolor: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 4px 12px rgba(255, 192, 203, 0.3)'
+        }}
+      >
         <Toolbar sx={{ p: 2 }}>
           <Header />
         </Toolbar>
       </AppBar>
 
-      {/* menu / drawer */}
-      <Sidebar />
+      {/* Sidebar */}
+      <Sidebar
+        sx={{
+          bgcolor: 'rgba(255, 255, 255, 0.05)',
+          backdropFilter: 'blur(8px)',
+          borderRight: '1px solid rgba(255, 255, 255, 0.1)'
+        }}
+      />
 
-      {/* main content */}
+      {/* Main content */}
       <MainContentStyled {...{ borderRadius, open: drawerOpen }}>
-        <Box sx={{ ...{ px: { xs: 0 } }, minHeight: 'calc(100vh - 128px)', display: 'flex', flexDirection: 'column' }}>
-          {/* breadcrumb */}
+        <Box
+          sx={{
+            px: { xs: 0 },
+            minHeight: 'calc(100vh - 128px)',
+            display: 'flex',
+            flexDirection: 'column',
+            bgcolor: 'rgba(255, 255, 255, 0.1)',
+            borderRadius: 3,
+            backdropFilter: 'blur(6px)',
+            boxShadow: '0 8px 32px rgba(255,192,203,0.3)'
+          }}
+        >
           <Breadcrumbs />
           <Outlet />
           <Footer />
         </Box>
       </MainContentStyled>
+
       <Customization />
     </Box>
   );

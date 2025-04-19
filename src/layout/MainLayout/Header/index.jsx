@@ -27,30 +27,6 @@ export default function Header() {
   return (
     <>
       {/* logo & toggler button */}
-      <Box sx={{ width: downMD ? 'auto' : 228, display: 'flex' }}>
-        <Box component="span" sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
-          <LogoSection />
-        </Box>
-        <Avatar
-          variant="rounded"
-          sx={{
-            ...theme.typography.commonAvatar,
-            ...theme.typography.mediumAvatar,
-            overflow: 'hidden',
-            transition: 'all .2s ease-in-out',
-            bgcolor: 'secondary.light',
-            color: 'secondary.dark',
-            '&:hover': {
-              bgcolor: 'secondary.dark',
-              color: 'secondary.light'
-            }
-          }}
-          onClick={() => handlerDrawerOpen(!drawerOpen)}
-          color="inherit"
-        >
-          <IconMenu2 stroke={1.5} size="20px" />
-        </Avatar>
-      </Box>
 
       {/* header search */}
       <SearchSection />

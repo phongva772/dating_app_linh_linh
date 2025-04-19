@@ -6,8 +6,14 @@ import MainRoutes from './MainRoutes';
 
 // ==============================|| ROUTING RENDER ||============================== //
 
-const router = createBrowserRouter([MainRoutes, AuthenticationRoutes], {
-  basename: import.meta.env.VITE_APP_BASE_NAME
-});
+const router = createBrowserRouter(
+  [
+    ...MainRoutes, // 👉 Trải mảng MainRoutes
+    AuthenticationRoutes
+  ],
+  {
+    basename: import.meta.env.VITE_APP_BASE_NAME
+  }
+);
 
 export default router;

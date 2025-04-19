@@ -14,7 +14,6 @@ export default defineConfig(({ mode }) => {
   const PORT = 3000;
 
   return {
-    assetsInclude: ['**/*.html'],
     server: {
       // this ensures that the browser opens upon server start
       open: true,

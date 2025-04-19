@@ -1,8 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
-import handlebars from 'vite-plugin-handlebars';
-import { resolve } from 'path';
 
 const API_URL = '/';
 
